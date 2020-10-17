@@ -117,7 +117,7 @@ public class AddressBook {
     					friends[place].printContact();
     					break;
     				default:
-    					System.out.println("Invalid input");
+    					System.out.println("Invalid input,enter another input");
     			}
     		
     		}
