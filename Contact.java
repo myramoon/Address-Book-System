@@ -1,6 +1,8 @@
-/* Purpose: To create a contact in Address Book */
+/* Purpose: To add a contact in Address Book */
+
 public class Contact {
 	
+	/*Variables*/
 	String firstName;
 	String lastName;
 	String houseId;
@@ -22,13 +24,8 @@ public class Contact {
 		this.email = email;
 	}
 	
-	void displayContact(Contact contactX) {
-		System.out.println(contactX);
-	}
-	
 	public String toString() {
 		return "First Name: " + this.firstName + " | Last Name: " + this.lastName + " | House Number : " + this.houseId + " | City: " + this.city + " | State: " + this.state + " | Zip: " + this.zip + " | Phone number: " + this.phoneNumber + " | Email:" + email;
 	}
 	
 }
-

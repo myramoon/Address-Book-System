@@ -1,9 +1,12 @@
-/* Purpose: To create a contact in Address Book */
+/* Purpose: To add a contact in Address Book */
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class AddressBook {
+	
+	ArrayList<Contact> contacts = new ArrayList<>();
 
-	public static void main (String[] args) {
+	public void addContact() {
 		
 		//Take contact details from user
 		Scanner scan = new Scanner(System.in);
@@ -24,11 +27,24 @@ public class AddressBook {
 		System.out.println("Enter email: ");
 		String email = scan.next();
 		scan.close();
-		
-		//Create a contact 
 		Contact contact1 = new Contact(firstName,lastName,houseId,city,state,zip,phoneNumber,email);
-		contact1.displayContact(contact1);
+		contacts.add(contact1);
+				
+	}
+	
+	public void displayBook(AddressBook book) { //show added contact
+		
+		System.out.println(book.contacts);
+		 
+	}
 
+	public static void main (String[] args) {
+				
+		AddressBook book = new AddressBook(); //Create an Address book 
+		book.addContact();  	   	     //Add a contact to the address book
+		book.displayBook(book);    	     //Display the contact
+		
 	}
 }
+
 
