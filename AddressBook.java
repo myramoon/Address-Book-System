@@ -1,4 +1,4 @@
-/*Purpose: To delete contact using name*/
+/*Purpose: To add multiple contacts */
 
 import java.io.*;
 import java.util.Scanner;
