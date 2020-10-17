@@ -1,4 +1,4 @@
-/*Purpose: To edit contact using name*/
+/*Purpose: To delete contact using name*/
 
 import java.io.*;
 import java.util.Scanner;
@@ -127,13 +127,28 @@ public class AddressBook {
     		}
     	
     	}
-   
-  	/* ***********STATIC METHODS ********* */
+
+	/* Deletes a contact with firstname, if one is in the AddressBook. */
+    	public void deleteContact(String firstname) {
+	
+		int place = haveContact(firstname);
+		if (place >= 0) {
+	    		friends[place] = friends[numfriends-1];
+	    		numfriends--;
+	    		System.out.println("Contact deleted.");
+		}	
+	    	else 
+	    		System.out.println("No such contact exists");	
+		
+    	}   
+  	
+	/* ***********STATIC METHODS ********* */
     	public static void menu() {
 		System.out.println("1.Add a new contact to your address book.");
-		System.out.println("2.Edit contact");
-		System.out.println("3.Print out information of all of your contacts.");
-		System.out.println("4.Quit.");
+		System.out.println("2.Delete a contact from your address book.");
+		System.out.println("3.Edit contact");
+		System.out.println("4.Print out information of all of your contacts.");
+		System.out.println("5.Quit.");
 		System.out.println("Enter your menu choice : ");
     	}
 
@@ -145,7 +160,7 @@ public class AddressBook {
 		menu();
 		Scanner stdin = new Scanner(System.in);
 		int choice=stdin.nextInt();
-		while(choice!=4){
+		while(choice!=5){
 			switch(choice) {
 	    			/* Only adds contact if there is room in AddressBook */
 				case 1: {
@@ -153,20 +168,26 @@ public class AddressBook {
 					break;
 	    	    		}
 	    	
-			
 				case 2: {
+					System.out.println("What is the first name of the contact you want to delete?");
+					String firstname = stdin.next();
+					book1.deleteContact(firstname);
+					break;
+	    	    		}
+				
+				case 3: {
 					System.out.println("What is the first name of the contact you want to edit?");
 					String firstname = stdin.next();
 					book1.editContact(firstname);
 					break;
 				}
 				
-				case 3: {
+				case 4: {
 					book1.printContacts();
 					break;
 				}
 				
-				case 4: {
+				case 5: {
 					stdin.close();
 					System.exit(0);
 				}

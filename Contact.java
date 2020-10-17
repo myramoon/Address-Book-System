@@ -1,4 +1,4 @@
-/* Purpose: To edit existing contact using name */
+/* Purpose: To delete existing contact using name */
 
 public class Contact {
 
